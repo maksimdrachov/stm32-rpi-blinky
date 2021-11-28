@@ -1,6 +1,6 @@
 
 # Put your stlink folder here so make burn will work.
-STLINK=~/stlink.git
+STLINK=/home/pi/stlink/bin
 
 # Put your source files here (or *.c, etc)
 SRCS=main.c system_stm32f4xx.c
@@ -9,7 +9,7 @@ SRCS=main.c system_stm32f4xx.c
 PROJ_NAME=blinky
 
 # Put your STM32F4 library code directory here
-STM_COMMON=../STM32F4-Discovery_FW_V1.1.0
+STM_COMMON=/home/pi/stm32-rpi-blinky/STM32F4-Discovery_FW_V1.1.0
 
 # Normally you shouldn't need to change anything below this line!
 #######################################################################################
