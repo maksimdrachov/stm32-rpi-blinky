@@ -20,7 +20,7 @@ arm-none-eabi-gcc --version
 
 You should see something like this:
 
-![sanity-check](/embedded-systems-architecture/rpi/bare-setup-stm32/images/sanity-check.png)
+![sanity-check](/stm32-rpi-blinky/images/sanity-check.png)
 
 STM boards use an interface called STLINK for programming and debugging firmware, install this tool:
 
@@ -92,4 +92,4 @@ gdb-multiarch blinky.elf
 
 You should get something like this:
 
-![debug-setup](/embedded-systems-architecture/rpi/bare-setup-stm32/images/debug-setup.png)
+![debug-setup](/stm32-rpi-blinky/images/debug-setup.png)
