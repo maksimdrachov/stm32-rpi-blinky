@@ -1,5 +1,5 @@
 ## Bare setup STM32
-The goal is to setup a simple Blinky program on the STM32F4 discovery board using only a terminal.
+The goal is to setup a simple Blinky program on the STM32F4 discovery board only using a terminal.
 
 Prerequisites:
 - STM32F4 Discovery board
@@ -30,10 +30,36 @@ sudo apt-get install cmake
 sudo apt-get install libusb-1.0-0-dev
 git clone https://github.com/stlink-org/stlink
 cd stlink
+cmake .
 make
 ```
 
-Install `gdb-multiarch` (`arm-arm-none-gdb` that works on RPI's ARM platform)
+Now we copy the built binaries to their place:
+
+```
+cd ~/stlink/bin
+sudo cp st-* /usr/local/bin
+cd ../lib
+sudo cp *.so* /lib
+```
+
+Then udev rules:
+
+```
+sudo cp stlink/config/udev/rules.d/49-stlinkv* /etc/udev/rules.d/
+```
+
+Restart the terminal, and then connect your STM board. Execute a probe command to see if it works:
+
+```
+st-info --probe
+```
+
+You should see something like this:
+
+(ADD A SCREENSHOT HERE)
+
+Now we need to install `gdb-multiarch` (`arm-arm-none-gdb` that works on RPI's ARM platform)
 
 ```
 sudo apt-get install gdb-multiarch
@@ -67,10 +93,12 @@ Connect your board to the RPI, and flash it using the following commands:
 
 ```
 cd ~/stm32-rpi-blinky/blinky
-make burn
+sudo make burn
 ```
 
 Now press the black reset button, the red led should start blinking.
+
+Note: the last command can also be done without "sudo" if you set the libusb permissions.
 
 ### Step 4: Debug setup
 
@@ -86,7 +114,7 @@ st-util
 In the second terminal window, run `gdb-multiarch`:
 
 ```
-cd ~/stm32-rpi-blinky
+cd ~/stm32-rpi-blinky/blinky
 gdb-multiarch blinky.elf
 ```
 
@@ -100,5 +128,5 @@ _Sources_
 
 - [github.com/rowol/stm32_discovery_arm_gcc](https://github.com/rowol/stm32_discovery_arm_gcc)
 
-
+- [Installing ST-Link to flash STM32 targets on Linux](https://freeelectron.ro/installing-st-link-v2-to-flash-stm32-targets-on-linux/)
 

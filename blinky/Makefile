@@ -1,6 +1,6 @@
 
 # Put your stlink folder here so make burn will work.
-STLINK=/home/pi/stlink/bin
+STLINK=/home/pi/stlink/build/Release/bin
 
 # Put your source files here (or *.c, etc)
 SRCS=main.c system_stm32f4xx.c
