@@ -93,3 +93,14 @@ gdb-multiarch blinky.elf
 You should get something like this:
 
 ![debug-setup](/images/debug-setup.png)
+
+In README_2.md I'm going to take an in-depth look at each step of this process.
+
+_Sources_
+
+- [Blink for stm32f4-discovery board on Linux with Makefile](https://liviube.wordpress.com/2013/04/22/blink-for-stm32f4-discovery-board-on-linux-with-makefile/)
+
+- [github.com/rowol/stm32_discovery_arm_gcc](https://github.com/rowol/stm32_discovery_arm_gcc)
+
+
+
