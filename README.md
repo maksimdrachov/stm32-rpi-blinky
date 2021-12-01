@@ -22,7 +22,7 @@ You should see something like this:
 
 ![sanity-check](/images/sanity-check.png)
 
-STM boards use an interface called STLINK for programming and debugging firmware, install this tool:
+STM boards use an interface called `stlink` for programming and debugging firmware, install this tool:
 
 ```
 sudo apt-get update
@@ -46,10 +46,10 @@ sudo cp *.so* /lib
 Then udev rules:
 
 ```
-sudo cp stlink/config/udev/rules.d/49-stlinkv* /etc/udev/rules.d/
+sudo cp ~/stlink/config/udev/rules.d/49-stlinkv* /etc/udev/rules.d/
 ```
 
-Restart the terminal, and then connect your STM board. Execute a probe command to see if it works:
+Restart the terminal, and then connect your board. A probe command will test if the connection is working:
 
 ```
 st-info --probe
@@ -57,7 +57,7 @@ st-info --probe
 
 You should see something like this:
 
-(ADD A SCREENSHOT HERE)
+![st-info-probe](/images/st-info-probe.png)
 
 Now we need to install `gdb-multiarch` (`arm-arm-none-gdb` that works on RPI's ARM platform)
 
@@ -93,12 +93,14 @@ Connect your board to the RPI, and flash it using the following commands:
 
 ```
 cd ~/stm32-rpi-blinky/blinky
-sudo make burn
+make burn
 ```
 
-Now press the black reset button, the red led should start blinking.
+A succesful flash:
 
-Note: the last command can also be done without "sudo" if you set the libusb permissions.
+![make-burn](/images/st-info-probe.png)
+
+Now press the black reset button, the red led should start blinking.
 
 ### Step 4: Debug setup
 
